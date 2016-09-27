@@ -1,0 +1,21 @@
+{
+  "name": "login-routing",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Eric Denton <eric@iamericanartist.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/iamericanartist/Node-DDA-Login-Routing",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
