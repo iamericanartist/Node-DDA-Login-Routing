@@ -1,4 +1,16 @@
 extends includes/layout.pug
 
 block content
-  h1 login
+  .container
+    h1 Login
+    form(method="POST")
+      .form-group
+        label(for="user") Username/Email
+        input#user(type="text", name="user", placeholder="you@yourmail.com", required)
+      .form-group
+        label(for="pass") Password
+        input#pass(type="password", name="pass", placeholder="yourP@55w0rd", required)
+      button.btn.btn-primary(type="submit") Login
+      button.btn.btn-danger(href="/") Cancel
+
+
