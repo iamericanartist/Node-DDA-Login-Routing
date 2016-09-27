@@ -12,7 +12,6 @@ const app = express()
 // USING PASSPORT AUTH
 // const passport = require("passport")
 // USING mLAB DATABASE
-// const { connect } = require('./db/database')
 
 const port = process.env.PORT || 3000
 app.set("port", port)
