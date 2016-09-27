@@ -3,12 +3,12 @@
 const mongoose = require("mongoose")
 
 module.exports = mongoose.model("User", {
-  email: {
+  user: {
     type: String,
     lowercase: true,
     required: true,
   },
-  password: {
+  pass: {
     type: String,
     required: true,
   }

@@ -1,41 +1,32 @@
 "use strict"
 
 const { Router } = require('express')
-const bcrypt = require("bcrypt")
 const router = Router()
+// const bcrypt = require("bcrypt")
 
 const User = require('../models/user')
 
 
 
-
-////////////////////////////////////  INDEX  ////////////////////////////////////
-router.get ("/", (req, res) =>                //this is the route for INDEX "/"
-  res.render("index")                         //render this page
-)
-
-
-//////////////////////////////////  REGISTER  //////////////////////////////////
-router.get("/register", (req, res) =>         //this is the route for REGISTER "/register"
-  res.render("register")                      //render this page
-)
-
-router.post("/register",)
-router.post("/register", (req, res, err) => {                                       // this is the POST route for CONTACT
-  if (req.body.password === req.body.confirmation) {
-    User
-      .create(req.body)
-      .then(() => res.redirect('/'))
-      .catch(err)
-  } else {
-    res.render('register', {error: "Password & password confirmation don't match"})
-  }
+router.get('/', function (req, res) {
+  // res.send('Hello World!')
+  res.render("home")
 })
 
 
-////////////////////////////////////  LOGIN  ////////////////////////////////////
-router.get("/login", (req, res) =>            //this is the route for LOGIN "/login"
-  res.render("login")                         //render this page
-)
+router.get('/login', function (req, res) {
+  res.render("login")
+})
 
 
+router.get('/register', function (req, res) {
+  res.render("register")
+})
+router.post('/register', function (req, res) {
+  console.log("req.body", req.body)
+  User
+    .create({ user: req.body.user, pass: req.body.pass })
+    .then(() => res.send("I have no idea."))
+})
+
+module.exports = router
