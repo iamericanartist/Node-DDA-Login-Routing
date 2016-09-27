@@ -10,3 +10,6 @@ const RedisStore = require('connect-redis')(session)  //grabbing from line above
 
 // USING mLAB DATABASE
 const { connect } = require('./db/database')
+
+// streams - requests coming through as streams, middlewares are in the stream
+
