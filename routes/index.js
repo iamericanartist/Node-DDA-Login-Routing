@@ -18,6 +18,10 @@ router.get('/login', function (req, res) {
   res.render("login")
 })
 
+router.get('/logout', function (req, res) {
+  res.render("logout")
+})
+
 
 router.get('/register', function (req, res) {
   res.render("register")

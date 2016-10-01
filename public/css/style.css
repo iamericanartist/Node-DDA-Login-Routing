@@ -1,0 +1,34 @@
+/* CSS located in the "public" folder and linked in layout.pug as "/css/style.css" */
+
+body{
+  background: linear-gradient(99deg, #F3F7D7 0, #B2D5F0 100%);
+  color: green;
+}
+
+h1 {
+  color: blue;
+}
+
+.navbar {
+  /*background-color: yellow;*/
+  background: linear-gradient(90deg, green 0%, white 55%);
+}
+
+.navbar li {
+  background-color: white;
+  color: black;
+}
+
+
+/* CSS! DEAL WITH IT! ;)
+      ....           ....           ....           ....
+     ||             ||             ||             ||
+ /"""l|\        /"""l|\        /"""l|\        /"""l|\
+/_______\      /_______\      /_______\      /_______\
+|  .-.  |------|  .-.  |------|  .-.  |------|  .-.  |------
+ __|L|__| .--. |__|L|__| .--. |__|L|__| .--. |__|L|__| .--.
+_\  \\p__`o-o'__\  \\p__`o-o'__\  \\p__`o-o'__\  \\p__`o-o'_
+------------------------------------------------------------
+------------------------------------------------------------
+
+*/

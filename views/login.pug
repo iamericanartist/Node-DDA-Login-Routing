@@ -3,14 +3,23 @@ extends includes/layout.pug
 block content
   .container
     h1 Login
-    form(method="POST")
-      .form-group
-        label(for="user") Username/Email
-        input#user(type="text", name="user", placeholder="you@yourmail.com", required)
-      .form-group
-        label(for="pass") Password
-        input#pass(type="password", name="pass", placeholder="yourP@55w0rd", required)
-      button.btn.btn-primary(type="submit") Login
-      button.btn.btn-danger(href="/") Cancel
+    hr
+    .container
+      form(method="POST")
+        .form-group
+          label(for="user") Username/Email
+          input#user(type="text", name="user", placeholder="you@yourmail.com", required)
+        .form-group
+          label(for="pass") Password
+          input#pass(type="password", name="pass", placeholder="yourP@55w0rd", required)
+        button.btn.btn-primary(type="submit") Login
+        button.btn.btn-danger(href="/") Cancel
 
+        style.
+          html{
+            font-size: 30px;
+          }
+          h1{
+            font-size: 5rem;
+          }
 
