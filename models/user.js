@@ -7,6 +7,9 @@ module.exports = mongoose.model("User", {
     type: String,
     lowercase: true,
     required: true,
+    index: {
+      unique: true,
+    }
   },
   pass: {
     type: String,

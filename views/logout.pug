@@ -1,0 +1,24 @@
+extends includes/layout.pug
+
+block content
+  .container
+    h1 Logout
+    hr
+    .container
+      p.lorem#ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      form(method="POST")
+        button.btn.btn-Primary(href="/") Back to Safety!
+        button.btn.btn-danger(type="submit") Logout
+
+        style.
+          html{
+            font-size: 30px;
+          }
+          h1{
+            font-size: 5rem;
+          }
+          p.lorem {
+            font-size: 1rem;
+            color: red;
+          }
+
