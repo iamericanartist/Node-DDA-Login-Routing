@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 // const MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost:27017/loginr"
 
 // // MLAB SETUP
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb://stipmy:itslogitslog@ds139655.mlab.com:39655/loginrdatabase"
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb://stimpy:itslogitslog@ds139655.mlab.com:39655/loginrdatabase"  // &&  "mongodb://localhost:27017/loginr"
 
 mongoose.Promise = Promise
 

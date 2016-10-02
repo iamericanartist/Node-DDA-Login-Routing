@@ -43,6 +43,7 @@ router.post("/login", ({session, body: {user, pass}}, res, err) => {
   .then((matches) => {
     if (matches) {
       session.user = user
+        console.log("qwerty",user)
       res.redirect("/")
     } else {
       res.render("login", {msg: "Password does not match"})
@@ -110,7 +111,7 @@ router.post("/register", ({ body: {user, pass, confirmation} }, res, err) => {
     })        
     // needs to be an object to work here with the hash ( hash => User.create({"req.body stuff"}) )
     .then(hash => User.create({ user, pass: hash}))
-    .then(console.log(`~~~Post HASH req.body\n ${user}\n ${pass}\n ${confirmation}`))
+    // .then(console.log(`~~~Post HASH req.body\n ${user}\n ${pass}\n ${confirmation}`))
     .then(() => res.redirect("/login"))
     .catch(err)
   } else {

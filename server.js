@@ -35,8 +35,6 @@ app.use(session({
 app.use((req, res, next) => {
   // set app.locals.user to req.session.user - Should reveal "Logged in as" in NAV upon login
   app.locals.user = req.session && req.session.user
-  console.log(">>>>> app.locals.user", app.locals.user)
-  console.log(">>>>> req.session.user", req.session.user)
   next()
 })
 
