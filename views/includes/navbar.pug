@@ -1,11 +1,29 @@
 .navbar.navbar-default
   .container-fluid
-    ul.nav.navbar-nav.navbar-right
+    ul.nav.navbar-nav.navbar-right.plzLogin
       li
-        a(href='/') Home
-      li
-        a(href='/login') Login
-      li
-        a(href='/register') Register
-      li
-        a(href='/logout') Logout
+        a(href="/") Home
+      if user
+        li: a(href="/logout") Logged in as #{user}
+        li(class={ active: page === "Logout" })
+          a(href="/logout") Logout
+      else
+        li: a(href="#") Not logged in
+        li(class={ active: page === "Login" })
+          a(href="/login") Login
+        li(class={ active: page === "Register" })
+          a(href="/register") Register
+
+style.
+  .plzLogin {
+    font-size: .9rem;
+  }
+
+
+//- OLD NAV LINKS
+//- li
+//-   a(href="/login") Login
+//- li
+//-   a(href="/register") Register
+//- li
+//-   a(href="/logout") Logout

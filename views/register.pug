@@ -8,15 +8,32 @@ block content
       form(method="POST")
         .form-group
           label(for="user") Username/Email
-          input#user(type="text", name="user", placeholder="you@yourmail.com", required)
+          input#user(
+            type="text", 
+            name="user", 
+            placeholder="you@yourmail.com", 
+            required
+          )
         .form-group
           label(for="pass") Password
-          input#pass(type="password", name="pass", placeholder="yourP@55w0rd", required)
+          input#pass(
+            type="password", 
+            name="pass", 
+            placeholder="yourP@55w0rd", 
+            required
+          )
         .form-group
           label(for="confirmation") Confirm Password
-          input#confirmation(type="password", name="confirmation", placeholder="yourP@55w0rd", required)
+          input#confirmation(
+            type="password", 
+            name="confirmation", 
+            placeholder="yourP@55w0rd", 
+            required
+          )
         button.btn.btn-primary(type="submit") Register
         button.btn.btn-danger(href="") Cancel
+        if msg
+          h2= msg
 
         style.
           html{
