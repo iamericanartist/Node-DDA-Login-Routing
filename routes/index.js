@@ -9,29 +9,29 @@ const User = require('../models/user')
 
 
 /////////////////////////////////  HOME ROUTE  /////////////////////////////////
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   // res.send('Hello World!')
   res.render("home")
 })
 
 
 ////////////////////////////////  LOGIN ROUTES  ////////////////////////////////
-router.get('/login', function (req, res) {
-  res.render('login')
+router.get('/login', (req, res) => {
+  res.render('login', {page: "Login"})
 })
 
 
 ////////////////////////////////  LOGOUT ROUTES  ////////////////////////////////
-router.post('/logout', function (req, res) {
-  res.render("logout")
+router.post('/logout', (req, res) => {
+  res.render("logout", {page: "Logout"})
 })
 
 
 ///////////////////////////////  REGISTER ROUTES  ///////////////////////////////
-router.get('/register', function (req, res) {
+router.get('/register', (req, res) => {
   res.render("register")
 })
-router.post('/register', function (req, res) {
+router.post('/register', (req, res) => {
   console.log("req.body", req.body)
   User
     .create({ user: req.body.user, pass: req.body.pass })

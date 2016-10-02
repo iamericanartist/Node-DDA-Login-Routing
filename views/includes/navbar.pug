@@ -1,6 +1,6 @@
 .navbar.navbar-default
   .container-fluid
-    ul.nav.navbar-nav.navbar-right
+    ul.nav.navbar-nav.navbar-right.plzLogin
       li
         a(href='/') Home
       if email
@@ -8,7 +8,7 @@
         li(class={ active: page === 'Logout' })
           a(href='/logout') Logout
       else
-        li.plzLogin: a(href='#') Not logged in
+        li: a(href='#') Not logged in
         li(class={ active: page === 'Login' })
           a(href='/login') Login
         li(class={ active: page === 'Register' })
@@ -16,12 +16,14 @@
 
 style.
   .plzLogin {
-    color: red;
+    font-size: .9rem;
   }
-      //- li
-      //-   a(href='/login') Login
-      //- li
-      //-   a(href='/register') Register
-      //- li
-      //-   a(href='/logout') Logout
-      
+
+
+//- OLD NAV LINKS
+//- li
+//-   a(href='/login') Login
+//- li
+//-   a(href='/register') Register
+//- li
+//-   a(href='/logout') Logout

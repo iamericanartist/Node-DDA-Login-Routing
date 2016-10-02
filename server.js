@@ -39,6 +39,11 @@ console.log("~~~~~~~~~app.locals.company~~~~~~~~\n", app.locals.company)
 ///////////////////////////////////  Routes  ///////////////////////////////////
 app.use(routes)
 
+// Custom 404 page
+app.use((req, res) =>
+  res.render('404')
+)
+
 
 // connect to database an initiate with port defined above
 connect()
