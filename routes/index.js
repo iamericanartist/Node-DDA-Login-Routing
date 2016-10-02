@@ -22,7 +22,7 @@ router.get("/login", (req, res) => {
 })
 
 // "session" needed for login POST 
-router.post('/login', ({session, body: {user, pass}}, res, err) => {
+router.post("/login", ({session, body: {user, pass}}, res, err) => {
   User.findOne({ user })
   .then(user => {
     if (user) {
@@ -36,23 +36,45 @@ router.post('/login', ({session, body: {user, pass}}, res, err) => {
         })
       })
     } else {
-      res.render('login', {msg: 'user does not exist in our system'})
+      res.render("login", {msg: "user does not exist in our system"})
     }
   })
   .then((matches) => {
     if (matches) {
       session.user = user
-      res.redirect('/')
+      res.redirect("/")
     } else {
-      res.render('login', {msg: 'Password does not match'})
+      res.render("login", {msg: "Password does not match"})
     }
   })
 })
 
+// // // DROPPING GUARD FUNCTIONALITY
+// // LOGIN MIDDLEWARE GUARD (make sure logged in )
+// router.use((req, res, next) => {
+//   if (req.session.email) {
+//    next()
+//   } else {
+//    res.redirect('/login')
+//   }
+// })
+
 
 ////////////////////////////////  LOGOUT ROUTES  ////////////////////////////////
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
+  if (req.session.user) {
   res.render("logout", {page: "Logout"})
+  } else {
+    // res.render("login")
+    res.redirect("/login")
+  } 
+})
+
+router.post("/logout", (req, res) => {
+  req.session.destroy(err => {
+    if (err) throw err
+    res.redirect("/login")
+  })
 })
 
 
@@ -70,7 +92,7 @@ router.post("/register", ({ body: {user, pass, confirmation} }, res, err) => {
     User.findOne({user})
       .then(user => {
         if (user) {
-        res.render('register', { msg: 'user is already registered'})
+        res.render("register", { msg: "user is already registered"})
       } else {
         // if pass and confirmation match then create user
         return new Promise((resolve, reject) => {
@@ -95,5 +117,6 @@ router.post("/register", ({ body: {user, pass, confirmation} }, res, err) => {
     res.render("register", { msg: "Password and Confimation do not match!"})
   }
 })
+
 
 module.exports = router

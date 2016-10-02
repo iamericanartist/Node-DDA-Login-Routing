@@ -2,8 +2,9 @@
 
 const mongoose = require("mongoose")
 
-// ... || String: "database"://localhost:"mongodPort"/"databaseName"
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost:27017/loginr"
+// // ... || String: "database"://localhost:"mongodPort"/"databaseName"
+// const MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost:27017/loginr"
+const MONGODB_URL = "mongodb://stipmy:itslogitslog@ds139655.mlab.com:39655/loginrdatabase"
 
 mongoose.Promise = Promise
 
