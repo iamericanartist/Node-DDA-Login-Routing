@@ -44,11 +44,12 @@ app.use((req, res, next) => {
 ////////////////////////////////////  Other  ////////////////////////////////////
 if (process.env.Node_ENV !== "production") {
   app.locals.pretty = true
-  // console.log("~~~~~~~~~app.locals.pretty~~~~~~~~~\n", app.locals.pretty)
 }
 
+// errors & body added to avoid guard statements such as: value = (body && body.name) vs. value = body.name
+app.locals.errors = {}
+app.locals.body = {}
 app.locals.company = "Loginr"
-// console.log("~~~~~~~~~app.locals.company~~~~~~~~\n", app.locals.company)
 
 
 ///////////////////////////////////  Routes  ///////////////////////////////////
