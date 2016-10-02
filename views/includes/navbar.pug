@@ -3,9 +3,25 @@
     ul.nav.navbar-nav.navbar-right
       li
         a(href='/') Home
-      li
-        a(href='/login') Login
-      li
-        a(href='/register') Register
-      li
-        a(href='/logout') Logout
+      if email
+        li: a(href='#') Logged in as #{email}
+        li(class={ active: page === 'Logout' })
+          a(href='/logout') Logout
+      else
+        li.plzLogin: a(href='#') Not logged in
+        li(class={ active: page === 'Login' })
+          a(href='/login') Login
+        li(class={ active: page === 'Register' })
+          a(href='/register') Register
+
+style.
+  .plzLogin {
+    color: red;
+  }
+      //- li
+      //-   a(href='/login') Login
+      //- li
+      //-   a(href='/register') Register
+      //- li
+      //-   a(href='/logout') Logout
+      
