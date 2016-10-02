@@ -8,7 +8,7 @@ const bodyParser = require("body-parser")
 const routes = require("./routes/") // same as ./routes/index.js
 const { connect } = require("./db/database")
 
-// const session = require("express-session")
+const session = require("express-session")
 // const RedisStore = require("connect-redis")(session)  //grabbing from line above and adding it here
 
 // USING mLAB DATABASE

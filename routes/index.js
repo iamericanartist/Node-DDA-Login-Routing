@@ -2,7 +2,7 @@
 
 const { Router } = require("express")
 const router = Router()
-// const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt")
 
 /////////////////////////////////  USER MODEL  /////////////////////////////////
 const User = require("../models/user")
@@ -34,19 +34,29 @@ router.get("/register", (req, res) => {
   res.render("register", {page: "Register"})
 })
 
-
-router.post("/register", (req, res) => {
-  console.log("req.body", req.body)
-  if (req.body.pass === req.body.confirmation) {
+//DECONSTRUCT:
+router.post("/register", ({ body: {user, pass, confirmation} }, res, err) => {
+  console.log(`DESTRUCTED req.body\n ${user}\n ${pass}\n ${confirmation}`)
+  if (pass === confirmation) {
     // if pass and confirmation match then create user
-    User
-      .create({ user: req.body.user, pass: req.body.pass, confirmation: req.body.confirmation})
+    return new Promise((resolve, reject) => {
+      // running as Promise assures everything resolves BEFORE creation of User
+      bcrypt.hash(pass, 10, (err, hash) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(hash)
+        }
+      })
+    })
+    // needs to be an object to work here with the hash ( hash => User.create({"req.body stuff"}) )
+    .then(hash => User.create({ user, pass: hash}))
       .then(() => res.redirect("/login"))
+      .catch(err)
   } else {
     // display message (msg) on the register page
     res.render("register", { msg: "Password and Confimation do not match!"})
   }
 })
-
 
 module.exports = router
