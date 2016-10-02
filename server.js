@@ -9,7 +9,7 @@ const routes = require("./routes/") // same as ./routes/index.js
 const { connect } = require("./db/database")
 
 const session = require("express-session")
-// const RedisStore = require("connect-redis")(session)  //grabbing from line above and adding it here
+const RedisStore = require("connect-redis")(session)  //grabbing from line above and adding it here
 
 // USING mLAB DATABASE
 
@@ -25,15 +25,28 @@ app.set("view engine", "pug")
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: false}))
 
+app.use(session({
+  store: new RedisStore(),
+  secret: "loginrsecretkey"
+}))
+
+app.use((req, res, next) => {
+  // set app.locals.user to req.session.user - Should reveal "Logged in as" in NAV upon login
+  app.locals.user = req.session.user
+  console.log(">>>>> app.locals.user", app.locals.user);
+  console.log(">>>>> req.session.user", req.session.user);
+  next()
+})
+
 
 ////////////////////////////////////  Other  ////////////////////////////////////
 if (process.env.Node_ENV !== "production") {
   app.locals.pretty = true
-  console.log("~~~~~~~~~app.locals.pretty~~~~~~~~~\n", app.locals.pretty)
+  // console.log("~~~~~~~~~app.locals.pretty~~~~~~~~~\n", app.locals.pretty)
 }
 
 app.locals.company = "Loginr"
-console.log("~~~~~~~~~app.locals.company~~~~~~~~\n", app.locals.company)
+// console.log("~~~~~~~~~app.locals.company~~~~~~~~\n", app.locals.company)
 
 
 ///////////////////////////////////  Routes  ///////////////////////////////////
