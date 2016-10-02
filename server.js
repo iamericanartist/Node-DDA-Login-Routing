@@ -8,8 +8,8 @@ const bodyParser = require("body-parser")
 const routes = require("./routes/") // same as ./routes/index.js
 const { connect } = require("./db/database")
 
-// const session = require('express-session')
-// const RedisStore = require('connect-redis')(session)  //grabbing from line above and adding it here
+// const session = require("express-session")
+// const RedisStore = require("connect-redis")(session)  //grabbing from line above and adding it here
 
 // USING mLAB DATABASE
 
@@ -22,12 +22,12 @@ app.set("view engine", "pug")
 
 
 /////////////////////////////////  MIDDLEWARES  /////////////////////////////////
-app.use(express.static('public'))
+app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: false}))
 
 
 ////////////////////////////////////  Other  ////////////////////////////////////
-if (process.env.Node_ENV !== 'production') {
+if (process.env.Node_ENV !== "production") {
   app.locals.pretty = true
   console.log("~~~~~~~~~app.locals.pretty~~~~~~~~~\n", app.locals.pretty)
 }
@@ -41,7 +41,7 @@ app.use(routes)
 
 // Custom 404 page
 app.use((req, res) =>
-  res.render('404')
+  res.render("404")
 )
 
 

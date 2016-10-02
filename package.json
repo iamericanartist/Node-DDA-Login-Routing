@@ -11,6 +11,9 @@
     "start": "node server.js",
     "postinstall": "bower install"
   },
+    "keywords": [
+      "Loginr"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
