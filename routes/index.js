@@ -88,7 +88,7 @@ router.get("/register", (req, res) => {
 
 //DECONSTRUCT:
 router.post("/register", ({ body: {user, pass, confirmation} }, res, err) => {
-  console.log(`DESTRUCTED req.body\n ${user}\n ${pass}\n ${confirmation}`)
+  console.log(`DESTRUCTURED req.body\n ${user}\n ${pass}\n ${confirmation}`)
   if (pass === confirmation) {
     // verify whether or not user in database
     User.findOne({user})

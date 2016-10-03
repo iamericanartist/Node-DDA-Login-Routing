@@ -5,16 +5,20 @@ block content
       h1 loginr
       h4 My Lil Login Site
       hr
-      p.lorem#ipsum Loginr! Logoutr! Get wild with your darn self! 
+      p.lorem#ipsum Loginr! Logoutr! ENJOY YOURSELF! 
       <br> 
       p.ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      a.btn.btn-success.btn-block.btn-lg(href="/login") I wanna LOGINR!
+      a.btn.btn-success.btn-block.btn-lg(href="/register") I wanna REGISTR!
+      a.btn.btn-primary.btn-block.btn-lg(href="/login") I wanna LOGINR!
+      hr
+      p.blockUs
+        if user
+          a(href="/logout") Logged in as #{user}
+        else
+          a(href="#") Not logged in
 
 
       style.
-        html{
-          font-size: 30px;
-        }
         h1{
           font-size: 5rem;
         }
@@ -22,11 +26,11 @@ block content
           font-size: 2rem;
         }
         p.lorem {
-          font-size: 1rem;
+          font-size: 1.1rem;
           color: red;
           text-align: center;
         }
         p.ipsum {
-          font-size: .8rem;
+          font-size: .9rem;
           color: darkgray;
         }
