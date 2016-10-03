@@ -1,4 +1,8 @@
 /* CSS located in the "public" folder and linked in layout.pug as "/css/style.css" */
+html{
+  font-size: 30px;
+  height: 100%;
+}
 
 body{
   background: linear-gradient(99deg, #F3F7D7 0, #B2D5F0 100%);
@@ -10,7 +14,6 @@ h1 {
 }
 
 .navbar {
-  /*background-color: yellow;*/
   background: linear-gradient(90deg, green 0%, white 55%);
 }
 
@@ -19,6 +22,15 @@ h1 {
   color: black;
 }
 
+.blockUs{
+  text-align: center;
+  margin: 80px;
+}
+
+.blockUs a{
+  font-size: 1.5rem;
+  color: #555;
+}
 
 /* CSS! DEAL WITH IT! ;)
       ....           ....           ....           ....
